@@ -105,3 +105,29 @@ $response = Invoke-WebRequest -Uri "http://localhost:3000/user/2" `
 delete
 Invoke-WebRequest -Uri "http://localhost:3000/user/2" `
     -Method Delete
+
+For API testing use thunderbolt client extention.
+
+
+Not lets work on Tweet Model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+INSTALLATION
+
+npm init : package.json & package-lock.json
+npm install express : node_modules 
+
+Installing development dependencies : typescript
+npm install typescript ts-node ,which will allow us to run our typescript application
+also were gonna install the nodemon in order to allow us to watch ourfiles and restart the server every time we're going to do changes 
+
+npm install typescript ts-node nodemon @types/node @types/express
+
+Command to run the code .
+npx ts-node src/index.ts
+
+Now our server is ready to receive requests 
+
+package.json 
+lets define a script that will watch our files and restart every time we do a change.
+"dev" : "nodemon src/index.ts"
+so now if i stop the server that was run with npx node and now if i do npm run dev so now nodemon will execute the file ,we are still going to be able to restart the server.
+
+.gitignore file
+since anyone can install node modules on their end ,so we there is no need to upload node_modules
+in github ,so in .gitignore file simply specify the modules that you dont want to upload in github
+
+Adding file in Github
+1. git init
+2. git status
+

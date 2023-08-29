@@ -26,7 +26,8 @@ router.post('/',async (req,res)=>{
 });
 //List Tweet
 router.get('/',async (req,res)=>{
-    const alltweet = await prisma.tweet.findMany();
+    const alltweet = await prisma.tweet.findMany({include : {user :{select : {id:true ,name:true ,username:true ,image:true}}}});
+    ////{select :{ id:true ,content:true ,user : {select :{id:true,name:true}}}}
     res.json(alltweet);
    //res.status(501).json({error : "Not implemented"});
    });

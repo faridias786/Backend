@@ -111,8 +111,9 @@ For API testing use thunderbolt client extention.
 
 Not lets work on Tweet Model.
 
-
-
+{include : {user : true}}
+now is it possible to return only a few field in user.
+so use select 
 
 
 

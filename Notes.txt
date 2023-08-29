@@ -26,4 +26,82 @@ in github ,so in .gitignore file simply specify the modules that you dont want t
 Adding file in Github
 1. git init
 2. git status
+3. git add .
+4. git commit -m "Project"
 
+Prisma
+It is a server side library that helps developers read and write data to the database
+in an intuitive ,efficient and safe way.
+
+npm install prisma --save-dev : version > 16.13
+npm install -g npm@9.8.1 to update 
+
+Initialize our Prisma Schema.
+
+What database do you want to use Prisma 
+npx prisma init --datasource-provider sqlite 
+
+this command created a folder Prisma with schema.prisma
+and here we will define our models .
+once model is defined then next step is to create relationship between user and tweet .
+first of all we need to think about the cardinality of a relationship is it one to one ,one to many ,many to many 
+
+How many tweets can a user have ?
+1 User can have many tweets 
+1 to many relationship
+
+1.define our schema
+2.Run a migration : npx prisma migrate dev --name "inti"
+
+let see how we can visualize our database layer and that is also possible to be done using prisma by 
+running : npx prisma studio
+
+lets go ahead and start querying our database and integrating with it ,so for what we have to do is we have to install the prisma client and is a way to connect to our prisma and to do that run 
+npm install @prisma/client 
+and lets open userRoutes
+
+one way to send a post request is using the curl 
+
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$jsonData = @{
+    "email" = "doge@twitter.com"
+    "name" = "Elon Musk"
+    "username" = "elon"
+}
+
+$jsonBody = $jsonData | ConvertTo-Json
+
+$response = Invoke-WebRequest -Uri "http://localhost:3000/user/1" `
+    -Method Post `
+    -Headers $headers `
+    -Body $jsonBody `
+    -ContentType "application/json"
+
+before hitting this on another terminal first create the connection with a server.
+
+put 
+
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$jsonData = @{
+    "name" = "farid"
+    "bio" = "Learning Backend"
+    "image" = "smiley"
+}
+
+$jsonBody = $jsonData | ConvertTo-Json
+
+$response = Invoke-WebRequest -Uri "http://localhost:3000/user/2" `
+    -Method Put `
+    -Headers $headers `
+    -Body $jsonBody `
+    -ContentType "application/json"
+
+delete
+Invoke-WebRequest -Uri "http://localhost:3000/user/2" `
+    -Method Delete

@@ -1,12 +1,14 @@
 import express from 'express';
 const app = express();
 
+
 import userRoutes from './routes/userRoutes';
 import tweetRoutes from './routes/tweetRoutes';
-app.use('/user',userRoutes);
-app.use('/tweet',tweetRoutes);
 //lets make sure right from the beginning whenever it will receive Json it will not parse it as string but it will automatically parse it as json  
 app.use(express.json());
+app.use('/user',userRoutes);
+app.use('/tweet',tweetRoutes);
+
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
